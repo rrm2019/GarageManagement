@@ -1,0 +1,25 @@
+﻿@using SystemGoal.Helpers
+@model GoalSystem.Models.Car
+
+@{
+    ViewData["Title"] = "_Table";
+}
+
+<tr>
+    <td>@Html.Raw(@CarHelper.GetStatusReview(Model.CarReview))</td>
+    <td>@Model.Make</td>
+    <td>@Model.Model</td>
+    <td>@Model.CarRegistration</td>
+    <td>@Model.Kilometers</td>
+    <td>@CarHelper.GetStatus(Model.Status)</td>
+
+    @if (DateTime.Today >= Model.CarReview)
+    {
+        <td>@Html.ActionLink("Iniciar Ruta", "Edit", "Car", new { id = Model.Id }, new { @class = "waver-effect waves-light btn tooltipped ", @disabled = "disabled" })</td>
+    }
+    else
+    {
+        <td>@Html.ActionLink("Iniciar Ruta", "Edit", "Car", new { id = Model.Id }, new { @class = "waver-effect waves-light btn" })</td>
+    }
+
+</tr>

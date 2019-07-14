@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<body>
+    <nav class="nav-extended">
+        <div class="nav-wrapper container">
+            @Html.ActionLink("LOGO", "Index", "Home", new { area = "" }, new { @class = "brand-logo" })
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li>
+                    @Html.ActionLink("Añadir", "Create", "Car", new { area = "" }, new { @id = "btnAddCar" })
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <ul class="sidenav" id="mobile-demo">
+        <li>
+            @Html.ActionLink("Añadir", "Create", "Car", new { area = "" }, new { @id = "btnAddCar" })
+        </li>
+    </ul>
+    <div class="container">
+        @RenderBody()
+        <hr />
+    </div>
+
+    <footer class="page-footer">
+        <div class="container" style="padding-bottom:10px;">
+            <p class="center">&copy; @DateTime.Now.Year - Goal System</p>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/Content/scripts")
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
+    @RenderSection("scripts", required: false)
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.sidenav');
+            var instances = M.Sidenav.init(elems);
+        });
+    </script>
+</body>
+</html>

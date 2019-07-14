@@ -1,0 +1,16 @@
+﻿#btnAddCar {
+    color: #fff;
+    background-color: #ee6e73;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.field-validation-error span {
+    color: red;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    transition: .2s opacity ease-out, .2s color ease-out;
+    -webkit-transition: .2s opacity ease-out, .2s color ease-out;
+}

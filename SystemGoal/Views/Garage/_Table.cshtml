@@ -1,0 +1,33 @@
+﻿@model IEnumerable<GoalSystem.Models.Car>
+
+<table class="striped centered responsive-table">
+    <thead>
+        <tr style="background-color:gainsboro">
+            <th colspan="7">GARAJE</th>
+        </tr>
+        <tr>
+            <th></th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Matricula</th>
+            <th>Kilómetros</th>
+            <th>Estado</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Any())
+        {
+            foreach (var item in Model)
+            {
+                @Html.Partial("~/Views/Garage/_Row.cshtml", item)
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="7"> No hay coches en la cochera </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,74 @@
+﻿@model GoalSystem.Models.Car
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm("Create", "Car", FormMethod.Post)) 
+{
+    @Html.AntiForgeryToken()
+
+
+<div class="row">
+    <form class="col s12">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "validate" })
+        <div class="row">
+            <div class="input-field col s6">
+                @Html.LabelFor(model => model.Make)
+                @Html.EditorFor(model => model.Make, "", new { @class = "validate" })
+                @Html.ValidationMessageFor(model => model.Make, "", new { @class = "helper-text" })
+            </div>
+
+            <div class="input-field col s6">
+                @Html.LabelFor(model => model.Model)
+                @Html.EditorFor(model => model.Model, "", new { @class = "validate" })
+                @Html.ValidationMessageFor(model => model.Model, "", new { @class = "helper-text" })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s6">
+                @Html.LabelFor(model => model.CarRegistration)
+                @Html.EditorFor(model => model.CarRegistration, "", new { @class = "validate", @required = "" })
+                @Html.ValidationMessageFor(model => model.CarRegistration, "", new { @class = "helper-text" })
+            </div>
+
+            <div class="input-field col s6">
+                @Html.LabelFor(model => model.CarReview)
+                @Html.TextBoxFor(model => model.CarReview, "{0:dd-MM-yyyy}", new { @id="carReview", @class = "datepicker" })
+                @Html.ValidationMessageFor(model => model.CarReview, "", new { @class = "helper-text" })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s6">
+                @Html.LabelFor(model => model.Kilometers)
+                @Html.EditorFor(model => model.Kilometers, "", new { @class = "validate" })
+                @Html.ValidationMessageFor(model => model.Kilometers, "", new { @class = "helper-text" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </form>
+</div>
+}
+
+<div style="padding-top: 30px;">
+    @Html.ActionLink("Volver", "Index", "Home")
+</div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('.datepicker');
+        var instances = M.Datepicker.init(elems);
+    });
+</script>

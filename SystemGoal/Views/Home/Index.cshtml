@@ -1,0 +1,40 @@
+﻿@model IEnumerable<GoalSystem.Models.Car>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+@if (@TempData["message"] == "toGarage")
+{
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+         M.toast({ html: 'Entrada en el garaje', classes: 'rounded' });
+     });
+</script>
+}
+else if (@TempData["message"] == "toRoute")
+{
+<script>
+     document.addEventListener('DOMContentLoaded', function () {
+         M.toast({ html: 'Salida del garaje', classes: 'rounded' });
+     });
+</script>
+}
+
+
+<div id="data">
+    <div class="row">
+        <div class="col-md-12 section">
+            @Html.Partial("~/Views/Garage/_Table.cshtml", Model.Where(c => c.Status == 1))
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 section">
+            @Html.Partial("~/Views/Route/_Table.cshtml", Model.Where(c => c.Status == 2))
+        </div>
+    </div>
+</div>
