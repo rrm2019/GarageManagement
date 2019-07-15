@@ -39,7 +39,7 @@ Clonar el repositorio y cambiar el data source de la base de datos, esto se real
 ```xml
 <add name="DefaultConnection" connectionString="Data Source= (LocalDb)\MSSQLLocalDB;initial catalog=SystemGoal;integrated security=True;MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
 ```
-> cambiar el connectionString por una base de datos que tengamos. No hace falta crear tablas, ya que al ejecutar el programa las tablas se crearán automáticamente basándose en las entidades implementadas (code first).
+> cambiar el connectionString por el nombre de un servidor de la base de datos que tengamos. No hace falta crear base de datos ni tablas, ya que al ejecutar el programa las tablas se crearán automáticamente basándose en las entidades implementadas (code first).
 
 ## Testing
 
